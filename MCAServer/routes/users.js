@@ -1,6 +1,5 @@
 const express = require('express');
 var router = express.Router();
-const db = require('../mongodb');
 
 router.post('/create', (req,res) => {
    

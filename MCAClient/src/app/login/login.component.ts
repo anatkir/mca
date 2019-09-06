@@ -10,14 +10,17 @@ import { ApiService } from '../api.service';
 export class LoginComponent implements OnInit {
 
   user:User = {} as User
+  showSpinner;
   constructor(private apiService:ApiService) { }
 
   ngOnInit() {
   }
 
   login(){
+    this.showSpinner = true;
     this.apiService.loginUser(this.user).subscribe(result => {
       console.log(result);
+      this.showSpinner = false;
     });
   }
 

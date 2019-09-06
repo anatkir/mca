@@ -10,6 +10,7 @@ import { ApiService } from '../api.service';
 export class RegisterComponent implements OnInit {
 
    user:User = {} as User;
+  showSpinner: boolean;
 
   constructor(private apiService:ApiService) { }
 
@@ -17,8 +18,9 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+    this.showSpinner = true;
     this.user.role = 'User';
-    this.apiService.postRegister(this.user).subscribe(result => console.log(result));
+    this.apiService.postRegister(this.user).subscribe(result => {console.log(result);this.showSpinner = false});
   }
 
 }
