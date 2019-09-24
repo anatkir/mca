@@ -16,6 +16,14 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { EventsComponent } from './events/events.component';
+import { EventsTabsComponent } from './events-tabs/events-tabs.component';
+import { MatTabsModule, MatDialogModule } from '@angular/material';
+import { MDBBootstrapModule, ChartsModule, BaseChartDirective } from 'angular-bootstrap-md';
+import { CountryGraphComponent } from './graphs/country-graph/country-graph.component';
+import { YearGraphComponent } from './graphs/year-graph/year-graph.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
+import { UsersComponent } from './users/users.component';
+
 
 @NgModule({
   declarations: [
@@ -23,23 +31,33 @@ import { EventsComponent } from './events/events.component';
     NavComponent,
     LoginComponent,
     RegisterComponent,
-    EventsComponent
+    EventsComponent,
+    EventsTabsComponent,
+    YearGraphComponent,
+    CountryGraphComponent,
+    EventEditComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
     LayoutModule,
+    MatTabsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatDialogModule,
     MatListModule,
     FormsModule,
     NgbModule,
-    HttpClientModule
+    ChartsModule,
+    HttpClientModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [HttpClient],
+  entryComponents:[EventEditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

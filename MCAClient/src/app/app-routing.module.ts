@@ -3,11 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { EventsComponent } from './events/events.component';
+import { EventsTabsComponent } from './events-tabs/events-tabs.component';
+import { UsersComponent } from './users/users.component';
 
 
 const routes: Routes = [{path:"",component:LoginComponent},
-                        {path:"events",component:EventsComponent} ,
-                        {path:"register",component:RegisterComponent}];
+                        {path:"events",component:EventsTabsComponent} ,
+                        {path:"register",component:RegisterComponent},
+                      {path:"users",component:UsersComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

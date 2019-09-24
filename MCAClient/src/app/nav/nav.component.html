@@ -2,18 +2,33 @@
   <mat-toolbar-row>
       <img class="img-fluid" src="../../assets/logo.png">
   <span>MCA</span>
+
+
+  <div *ngIf="!auth.getCurrentUser()">
       <span>
       <button mat-button [routerLink]="['']">Login</button>
       <button mat-button [routerLink]="['register']">Register</button>
     </span>
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
-  </mat-menu>
+  </div>
+
+  <div *ngIf="auth.getCurrentUser()">
+      <button mat-button [routerLink]="['events']">Cyber Events</button>
+     
+     
+     </div>
+
+    <div *ngIf="auth.isAdmin()">
+        <button mat-button [routerLink]="['users']">Manage Users</button>
+</div>
+
+<span class="fill-space"></span>
+
+
+<div *ngIf="auth.getCurrentUser()">
+
+  <i style="font-size: 11px">User : {{auth.getCurrentUser().firstName}}</i>
+<button  mat-button style="color:red;font-weight: bold" (click)="auth.logout()">Logout</button>
+
+</div>
    </mat-toolbar-row>
+   </mat-toolbar>

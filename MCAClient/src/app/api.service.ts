@@ -7,6 +7,9 @@ import {environment} from '../environments/environment'
   providedIn: 'root'
 })
 export class ApiService {
+  getUsers() {
+    return this.httpClient.get<any[]>(environment.serverUrl + 'getAllUsers' , {withCredentials:true} );
+  }
 
   constructor(private httpClient:HttpClient) { }
 
@@ -19,8 +22,13 @@ export class ApiService {
   }
 
   getEvents() {
-   return this.httpClient.get<any[]>(environment.serverUrl + 'events' , {withCredentials:true} );
+   return this.httpClient.get<any[]>(environment.serverUrl + 'events/events' , {withCredentials:true} );
   }
+
+  addEvent(event) {
+    return this.httpClient.post<any[]>(environment.serverUrl + 'events/create',event , {withCredentials:true} );
+   }
+ 
 
   addEventComment(comment){
     return this.httpClient.post<any>(environment.serverUrl + 'addComment' , comment, {withCredentials:true} );
@@ -28,6 +36,10 @@ export class ApiService {
 
   getComments(id){
     return this.httpClient.get<any[]>(environment.serverUrl + 'getAllComments/' + id , {withCredentials:true} );
+  }
+
+  deleteEvent(id){
+    return this.httpClient.delete<any[]>(environment.serverUrl + 'events/delete/' + id , {withCredentials:true} );
   }
 
 }

@@ -1,0 +1,49 @@
+
+.mat-column {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+
+  .mat-column-name{
+    flex: 0 0 15% !important;
+    width: 15% !important;
+  }
+
+  .mat-column-date{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
+
+  .mat-column-system{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
+
+  .mat-column-attacker{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
+
+  .mat-column-victim{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
+
+  .mat-column-target{
+    flex: 0 0 30% !important;
+    width: 30% !important;
+  }
+
+  table {
+    width: 100%;
+  }

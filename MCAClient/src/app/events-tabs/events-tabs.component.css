@@ -1,0 +1,9 @@
+.center-block {
+    display: table;  /* Instead of display:block */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.active{
+    background-color: #6c757d;
+}

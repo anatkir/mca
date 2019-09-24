@@ -1,0 +1,25 @@
+
+<h4>{{data.editMode? 'Edit Event' : 'Add Event'}}</h4>
+<mat-form-field>
+        <input matInput [(ngModel)]="event.eventName" placeholder="Event Name">
+</mat-form-field>
+<mat-form-field>
+        <input matInput [(ngModel)]="event.system" placeholder="System">
+</mat-form-field>
+<mat-form-field>
+        <input matInput [(ngModel)]="event.attacker" placeholder="Attacker">
+</mat-form-field>
+<mat-form-field>
+        <input matInput [(ngModel)]="event.victim" placeholder="Victim">
+</mat-form-field>
+<mat-form-field>
+        <input matInput [(ngModel)]="event.attackTarget" placeholder="Target">
+</mat-form-field>
+
+<mat-form-field>
+        <textarea matInput [(ngModel)]="event.description" placeholder="Description"></textarea>
+</mat-form-field>
+
+
+    <button mat-raised-button (click)="confirm()">Confirm</button>
+

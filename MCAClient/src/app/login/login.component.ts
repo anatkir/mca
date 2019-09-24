@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { ApiService } from '../api.service';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +13,26 @@ export class LoginComponent implements OnInit {
 
   user:User = {} as User
   showSpinner;
-  constructor(private apiService:ApiService) { }
+  errorMessage: string;
+  constructor(private apiService:ApiService, private authService:AuthService,private router:Router) { 
+    if(this.authService.getCurrentUser()){
+      this.router.navigate(['events']);
+    }
+  }
 
   ngOnInit() {
   }
 
   login(){
+    this.errorMessage = undefined;
     this.showSpinner = true;
     this.apiService.loginUser(this.user).subscribe(result => {
       console.log(result);
+      this.showSpinner = false;
+      this.authService.loginUser(result);
+      this.router.navigate(['events']);
+    },error => {
+      this.errorMessage = 'Username or Password are incorrect!';
       this.showSpinner = false;
     });
   }

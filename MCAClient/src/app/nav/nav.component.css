@@ -3,3 +3,7 @@
     max-width: 7% !important;
     margin-right: 2% !important;
   }
+
+  .fill-space{
+    flex: 1 1 auto;
+  }

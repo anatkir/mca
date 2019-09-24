@@ -90,3 +90,15 @@
   .example-element-description-attribution {
     opacity: 0.5;
   }
+
+  .edit{
+    color:cornflowerblue; 
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .delete{
+    color:brown;
+    cursor: pointer;
+    text-decoration: underline;
+  }
