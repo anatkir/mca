@@ -1,10 +1,35 @@
 
 <h1 class="mat-h1">Cyber Events History <button *ngIf="auth.isAdmin()" mat-mini-fab style="float:right;" (click)="addEvent()">Add</button></h1>
+<span>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <mat-select (selectionChange)="changeFilter($event)">
+      <mat-option value="eventName" >
+       Event Name
+      </mat-option>
+      <mat-option value="system">
+          System
+         </mat-option>
+    <mat-option value="attacker">
+            Attacker
+     </mat-option>
+     <mat-option value="victim">
+        Victim
+ </mat-option>
+ <mat-option value="attackTarget">
+    Attack Target
+</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-
+</span>
+<mat-form-field style="margin-left:5px">
+  <input matInput (keyup)="applyFilter($event.target.value)" [disabled]="!this.filterField" placeholder="Search">
+</mat-form-field>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
 
   
+
     <ng-container matColumnDef="eventName">
       <th mat-header-cell *matHeaderCellDef> Event Name </th>
       <td class ="mat-column mat-column-name" mat-cell *matCellDef="let element"> {{element.eventName}} </td>
@@ -45,6 +70,7 @@
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td  class ="mat-column mat-column-date" mat-cell *matCellDef="let element"> 
           <span *ngIf="auth.isAdmin()"><i class="edit" (click)="edit(element)">Edit </i><i class="delete" (click)="deleteEvent(element)">Delete</i></span> 
+          <span *ngIf="!auth.isAdmin()">---</span> 
         </td>
     </ng-container>
 

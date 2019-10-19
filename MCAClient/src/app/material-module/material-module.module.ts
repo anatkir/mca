@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatTableModule } from '@angular/material/';
+import { MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatTableModule, MatSelectModule } from '@angular/material/';
 import {MatMenuModule} from '@angular/material/menu';
 
 
@@ -20,11 +20,13 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   exports:[
     BrowserAnimationsModule,
     MatTableModule,
+    MatSelectModule,
     MatSidenavModule,
     MatIconModule,
     MatMenuModule,

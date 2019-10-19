@@ -7,11 +7,13 @@ import {environment} from '../environments/environment'
   providedIn: 'root'
 })
 export class ApiService {
+
+  constructor(private httpClient:HttpClient) { }
+
+
   getUsers() {
     return this.httpClient.get<any[]>(environment.serverUrl + 'getAllUsers' , {withCredentials:true} );
   }
-
-  constructor(private httpClient:HttpClient) { }
 
   postRegister(user:User){
     return this.httpClient.post<any>(environment.serverUrl + 'create', user, {withCredentials:true});
@@ -28,6 +30,10 @@ export class ApiService {
   addEvent(event) {
     return this.httpClient.post<any[]>(environment.serverUrl + 'events/create',event , {withCredentials:true} );
    }
+
+   updateEvent(event) {
+    return this.httpClient.put<any[]>(environment.serverUrl + 'events/update',event , {withCredentials:true} );
+   }
  
 
   addEventComment(comment){
@@ -40,6 +46,10 @@ export class ApiService {
 
   deleteEvent(id){
     return this.httpClient.delete<any[]>(environment.serverUrl + 'events/delete/' + id , {withCredentials:true} );
+  }
+
+  deleteUser(id){
+    return this.httpClient.delete<any[]>(environment.serverUrl + 'deleteUser/' + id , {withCredentials:true} );
   }
 
 }

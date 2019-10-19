@@ -50,6 +50,9 @@ export class YearGraphComponent implements OnInit {
   
     ngOnInit() {
   
+      //Getting all the events
+      //Create chart labels array according the date of the events witout duplicates and sort it.
+      //Create the data array according filter of each year label.
       this.apiService.getEvents().subscribe(result =>{
         this.chartDatasets[0].data = [];
         this.chartLabels = result.map(event => new Date(event.startDate).getFullYear())

@@ -16,7 +16,10 @@ router.post('/create', (req,res) => {
 
 console.log(req.session);
     if(req.session.user.role === 'Admin'){
+        req.body.startDate = new Date(req.body.startDate);
+            req.body.endDate = new Date(req.body.endDate);
         dbo.collection("events").insertOne(req.body, function(err, result) {
+            
             if (err) {
                 res.status(500).send({error:err});
             }
@@ -26,6 +29,29 @@ console.log(req.session);
         res.status(401).send();
     }
 
+});
+
+router.put('/update', (req,res) => {
+
+    console.log(req.session);
+        if(req.session.user.role === 'Admin'){
+            let update = Object.assign({}, req.body);
+            delete update._id;
+            req.body.startDate = new Date(req.body.startDate);
+                req.body.endDate = new Date(req.body.endDate);
+            dbo.collection("events").updateOne({_id:new ObjectID(req.body._id)}, { $set:update}, function(err, result) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).send({error:err});
+                } else{
+
+                res.send({message:"Event Updated"});
+                }
+              });
+        } else {
+            res.status(401).send();
+        }
+    
 });
 
 router.delete('/delete/:id', (req,res) => {

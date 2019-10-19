@@ -30,6 +30,13 @@
         <td class ="mat-column mat-column-target" mat-cell *matCellDef="let element"> {{element.role}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="Actions" >
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td  class ="mat-column mat-column-date" mat-cell *matCellDef="let element"> 
+             <i class="delete" (click)="deleteUser(element)">Delete</i>
+            </td>
+        </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
 

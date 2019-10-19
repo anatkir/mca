@@ -1,5 +1,8 @@
 
-<h4>{{data.editMode? 'Edit Event' : 'Add Event'}}</h4>
+<h4 mat-dialog-title>{{data.editMode? 'Edit Event' : 'Add Event'}}</h4>
+<mat-dialog-content>
+
+    
 <mat-form-field>
         <input matInput [(ngModel)]="event.eventName" placeholder="Event Name">
 </mat-form-field>
@@ -20,6 +23,15 @@
         <textarea matInput [(ngModel)]="event.description" placeholder="Description"></textarea>
 </mat-form-field>
 
+<mat-form-field>
+    <input matInput type="date" name="event.startDate" [ngModel]="event.startDate | date:'yyyy-MM-dd'" placeholder="Start Date" (ngModelChange)="event.startDate = $event">
+</mat-form-field>
 
-    <button mat-raised-button (click)="confirm()">Confirm</button>
+<mat-form-field>
+    <input matInput type="date" name="event.endDate" [ngModel]="event.endDate | date:'yyyy-MM-dd'" placeholder="End Date" (ngModelChange)="event.endDate = $event">
+</mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+<button mat-raised-button (click)="confirm()">Confirm</button>
+</mat-dialog-actions>
 

@@ -23,6 +23,7 @@ import { CountryGraphComponent } from './graphs/country-graph/country-graph.comp
 import { YearGraphComponent } from './graphs/year-graph/year-graph.component';
 import { EventEditComponent } from './event-edit/event-edit.component';
 import { UsersComponent } from './users/users.component';
+import { OverviewComponent } from './overview/overview.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { UsersComponent } from './users/users.component';
     YearGraphComponent,
     CountryGraphComponent,
     EventEditComponent,
-    UsersComponent
+    UsersComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,

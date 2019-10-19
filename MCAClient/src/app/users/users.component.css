@@ -47,3 +47,9 @@
   table {
     width: 100%;
   }
+
+  .delete{
+    color:brown;
+    cursor: pointer;
+    text-decoration: underline;
+  }

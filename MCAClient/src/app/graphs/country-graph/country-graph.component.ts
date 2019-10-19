@@ -51,6 +51,9 @@ export class CountryGraphComponent implements OnInit {
   
     ngOnInit() {
   
+      //Getting all the events
+      //Create chart labels array according the country of the events witout duplicates and sort it.
+      //Create the data array according filter of each country label.
       this.apiService.getEvents().subscribe(result =>{
         this.chartDatasets[0].data = [];
         this.chartLabels = result.map(event => event.country)

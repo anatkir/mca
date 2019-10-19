@@ -3,19 +3,19 @@
         <mat-card-title>Register</mat-card-title>
     </mat-card-header>
     <mat-card-content >
-        <form>
+        <form (ngSubmit)="register()" ngNativeValidate>
             <table cellspacing="0">
                 <tr>
                     <td>
                         <mat-form-field>
-                            <input matInput placeholder="First Name" [(ngModel)]="user.firstName" name="firstName" required>
+                            <input matInput placeholder="First Name" maxlength=10 [(ngModel)]="user.firstName" name="firstName" required>
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <mat-form-field>
-                            <input matInput placeholder="Last Name" [(ngModel)]="user.lastName" name="lastName" required>
+                            <input matInput placeholder="Last Name" maxlength=10 [(ngModel)]="user.lastName" name="lastName" required>
                         </mat-form-field>
                     </td>
                 </tr>
@@ -23,30 +23,39 @@
                 <tr>
                     <td>
                         <mat-form-field>
-                            <input matInput placeholder="Username" [(ngModel)]="user.userName" name="username" required>
+                            <input matInput placeholder="Username" minlength=6 [(ngModel)]="user.userName" name="username" required>
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <mat-form-field>
-                            <input matInput placeholder="E-mail" [(ngModel)]="user.email" name="email" required>
+                            <input matInput placeholder="E-mail" type="email" [(ngModel)]="user.email" name="email" required>
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <mat-form-field>
+                                <mat-hint>Your password must contain uppercase,lowercase and number character,in length of 6 characters at least.</mat-hint>
                             <input matInput placeholder="Password" [(ngModel)]="user.password" type="password"
-                                name="password" required>
+                                name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
                         </mat-form-field>
+                        
                     </td>
                 </tr>
             </table>
-        </form>
+    
         <mat-spinner [diameter] = "30" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                {{errorMessage}}
+        </div>
+        <mat-card-actions style="margin-top:20px">
+                <button type="submit" mat-raised-button color="primary" >Register</button>
+            </mat-card-actions>
+    </form>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button (click)="register()" color="primary">Register</button>
-    </mat-card-actions>
+    
+
+
 </mat-card>
