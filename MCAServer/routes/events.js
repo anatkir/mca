@@ -1,7 +1,10 @@
+//API For events collection
+
 const express = require('express');
 const ObjectID = require('mongodb').ObjectID;
 var router = express.Router();
 
+//Return all the events from the DB
 router.get('/events', (req,res) => {
    console.log(req.session)
     dbo.collection("events").find({}).toArray( function(err, result) {
@@ -12,6 +15,7 @@ router.get('/events', (req,res) => {
       });
 });
 
+//Creating an event in the DB
 router.post('/create', (req,res) => {
 
 console.log(req.session);
@@ -31,6 +35,7 @@ console.log(req.session);
 
 });
 
+//Updating an event
 router.put('/update', (req,res) => {
 
     console.log(req.session);
@@ -54,6 +59,7 @@ router.put('/update', (req,res) => {
     
 });
 
+//Delete an event
 router.delete('/delete/:id', (req,res) => {
     console.log(req.params.id)
      dbo.collection("events").deleteOne({_id:new ObjectID(req.params.id)}, function(err, result) {

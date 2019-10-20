@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['FirstName', 'LastName', 'UserName', 'email','role','Actions'];
+  displayedColumns: string[] = ['FirstName', 'LastName', 'UserName', 'email','role','lastLogin','Actions'];
   dataSource : MatTableDataSource<User[]>;
   constructor(private apiService:ApiService,private authService:AuthService, private router:Router) {
     console.log(this.authService.isAdmin() === false);

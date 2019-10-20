@@ -36,7 +36,13 @@ export class LoginComponent implements OnInit {
       this.authService.loginUser(result);
       this.router.navigate(['events']);
     },error => {
-      this.errorMessage = 'Username or Password are incorrect!';
+      if(this.authService.failLogin()){
+
+        this.errorMessage = 'You blocked for 20 seconds!';
+      } else {
+        this.errorMessage = 'Username or Password are incorrect!';
+      }
+     
       this.showSpinner = false;
     });
   }

@@ -7,33 +7,38 @@
   
     <ng-container matColumnDef="FirstName">
       <th mat-header-cell *matHeaderCellDef> First Name </th>
-      <td class ="mat-column mat-column-name" mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      <td class ="mat-column mat-column-firstName" mat-cell *matCellDef="let element"> {{element.firstName}} </td>
     </ng-container>
   
     <ng-container matColumnDef="LastName">
       <th mat-header-cell *matHeaderCellDef> Last Name </th>
-      <td class ="mat-column mat-column-system" mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      <td class ="mat-column mat-column-lastName" mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
   
     <ng-container matColumnDef="UserName">
       <th mat-header-cell *matHeaderCellDef> User Name </th>
-      <td class ="mat-column mat-column-attacker" mat-cell *matCellDef="let element"> {{element.userName}} </td>
+      <td class ="mat-column mat-column-userName" style="font-weight: bold"  mat-cell *matCellDef="let element"> {{element.userName}} </td>
     </ng-container>
   
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td class ="mat-column mat-column-victim" mat-cell *matCellDef="let element"> {{element.email}} </td>
+      <td class ="mat-column mat-column-email" mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
 
     <ng-container matColumnDef="role">
         <th mat-header-cell *matHeaderCellDef> Role </th>
-        <td class ="mat-column mat-column-target" mat-cell *matCellDef="let element"> {{element.role}} </td>
+        <td class ="mat-column mat-column-role" mat-cell *matCellDef="let element"> {{element.role}} </td>
     </ng-container>
+
+    <ng-container matColumnDef="lastLogin">
+            <th mat-header-cell *matHeaderCellDef> Last LoggedIn </th>
+            <td class ="mat-column mat-column-logged" style="font-weight: bold" mat-cell *matCellDef="let element"> {{element.lastLogin |  date:'dd/MM/yy HH:mm:ss'}} </td>
+        </ng-container>
 
     <ng-container matColumnDef="Actions" >
             <th mat-header-cell *matHeaderCellDef> Actions </th>
-            <td  class ="mat-column mat-column-date" mat-cell *matCellDef="let element"> 
-             <i class="delete" (click)="deleteUser(element)">Delete</i>
+            <td  class ="mat-column mat-column-actions" mat-cell *matCellDef="let element"> 
+             <i *ngIf="element.role !== 'Admin'" class="delete" (click)="deleteUser(element)">Delete</i>
             </td>
         </ng-container>
 

@@ -14,34 +14,39 @@
   }
 
 
-  .mat-column-name{
+  .mat-column-firstName{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
+
+  .mat-column-lastName{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
+
+  .mat-column-userName{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
+
+  .mat-column-email{
     flex: 0 0 15% !important;
     width: 15% !important;
   }
 
-  .mat-column-date{
+  .mat-column-role{
     flex: 0 0 10% !important;
     width: 10% !important;
   }
 
-  .mat-column-system{
-    flex: 0 0 10% !important;
-    width: 10% !important;
+  .mat-column-lastLogin{
+    flex: 0 0 20% !important;
+    width: 20% !important;
   }
 
-  .mat-column-attacker{
-    flex: 0 0 10% !important;
-    width: 10% !important;
-  }
-
-  .mat-column-victim{
-    flex: 0 0 10% !important;
-    width: 10% !important;
-  }
-
-  .mat-column-target{
-    flex: 0 0 30% !important;
-    width: 30% !important;
+  .mat-column-actions{
+    flex: 0 0 20% !important;
+    width: 20% !important;
   }
 
   table {

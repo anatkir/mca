@@ -81,7 +81,7 @@
                 <div class="example-element-diagram" >
                   <p><b>Description: </b> <i style="font-family: Arial, Helvetica, sans-serif">{{element.description}}</i></p>
                   <mat-form-field>
-                    <input matInput placeholder="Add a comment..." [(ngModel)]="comment">
+                    <input matInput placeholder="Add a comment..." maxlength="50" [(ngModel)]="comment">
                   </mat-form-field>
                   <button mat-button (click)="addComment(element._id)">Add</button>
                   <h2 class="mat-h2">All Comments</h2>
@@ -89,6 +89,7 @@
                   <div class="comment" *ngFor="let c of comments">
                     <span>User : <b>{{c.user}} </b>, comment : <b>{{c.comment}}</b> , Rating:
                       <ngb-rating [(rate)]="currentRate" [max]="5"></ngb-rating>
+                      <i *ngIf="auth.isAdmin()" class="delete" (click)="deleteComment(c._id, element._id)" style="margin-left:5px">Delete</i>
                     </span>
                   </div>
                 </div>

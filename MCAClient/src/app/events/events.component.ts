@@ -114,6 +114,13 @@ export class EventsComponent implements OnInit {
     });
   }
 
+  //Make a request to the API Service for delete the requested comment.
+  deleteComment(commentId, eventId){
+    this.apiService.deleteComment(commentId).subscribe(result=>{
+      this.getComments(eventId);
+    });
+  }
+
 
   //Make a request to the API Service for getting all the comments for a specific event.
   getComments(id){
